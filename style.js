@@ -1,36 +1,39 @@
      // looping  autotype with setTimeout
-     let word =['My name is Samuel', 'I and studying Software Engineer at SQI', 'My instructor is mr Teslim' ];
+     let sentences =['My name is Samuel', 'I love coding', 'My hobby is coding' ];
      let display = document.getElementById('display')
-     let index = 0;
+
+     let sentenceIndex = 0;
+     let wordIndex = 0;
     //  let timer;
 
 
 function start(){
-    let sentence = sentence[sentenceIndex];
+    let sentence = sentences[sentenceIndex];
     console.log(sentence);
     writeIt(sentence);
 }
 
 function writeIt(towrite){
-    display.innerHTML += towrite[wordIndex];
+    display.innerHTML += towrite[wordIndex]
     if (towrite[wordIndex+1]){
         wordIndex++
         setTimeout(() => {
             writeIt(towrite)
-        }, 100);
+        }, 200);
+
     } else{
         setTimeout(() =>{
             removeIt();
-        }, 50);
+        }, 200);
     }
-}
+};
 
 function removeIt(){
-    if (display.innerHTML |=''){
+    if (display.innerHTML !=''){
         setTimeout(() => {
-            display.innerHTML = display.innerHTML.slice(0,1)
+            display.innerHTML = display.innerHTML.slice(0, -1)
             removeIt();
-        }, 50);
+        }, 200);
 
     }
     else{
@@ -43,5 +46,7 @@ function removeIt(){
             writeIt(sentences[sentenceIndex])
         }
     }
-}
-start()
+};
+
+// console.log(removeIt);
+start();
